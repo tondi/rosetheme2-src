@@ -1,0 +1,88 @@
+.content-area{
+    text-align: center;
+}
+#main{
+    // z-index: 1;
+    .content-colored{
+        color: $rose;
+    }
+    .entry-header{
+        // position: relative;
+        z-index: 1;
+        background: rgba(0,0,0,0.3);
+        // transform: translate3d(0);
+        
+        &::before{
+            position: fixed;
+            // background-color: white;
+            //will-change: transform; // creates a new paint layer
+            background: url(http://localhost/centrumroza/wp-content/uploads/2017/03/cropped-rose-main.jpg);
+            content: '\A';
+            // background: rgba(0,0,0,0.6);
+            width: 100%;
+            height: 300px;
+            top: 0;
+            left: 0;
+            z-index: -999;
+            // opacity: 0.5;
+            background-position: 10% top;
+            // background-image:
+            // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+            background-repeat: no-repeat;
+            // background-attachment: fixed;
+            // background-size: cover;
+
+            // Jak wydajnosc nie styknie zmienic na cover(?)
+            background-size: calc(100vw * 1.78);
+            @include respond-to (plus-small){
+                background-size: calc(100vw * 1);
+            }
+            // background-color: $rose; // ladowanie
+        }
+        // height: 200px;
+        // width: auto;
+        
+        
+        height: 300px ;
+        // width: auto;
+        min-width: 100vw;
+        // min-height: 300px;
+        // max-height: 100vh;
+        // margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .entry-title{
+        // height: 100%;
+        font-weight: 400;
+        z-index: 1;
+        
+        color: white;
+        margin: 10%;
+        // position: absolute;
+        // top: 50px;
+        // left: 20%;
+        // right: 20%;
+        text-align: center;
+    }
+    .entry-content{
+        z-index: 1;
+        padding: 5%;
+        background: #ffffff;
+        font-size: 1.1em;
+    }
+}
+
+#picture{
+    img{
+        // width: 100vw;
+        width: 50%;
+        height: auto;
+        float: right;
+        margin: 3%;
+    }
+}
+.entry-footer{
+    background: $bgcolor;
+}

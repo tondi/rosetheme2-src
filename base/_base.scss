@@ -1,0 +1,23 @@
+body, html{
+    // height: 100%;
+    margin: 0;
+    padding: 0;
+    // background: rgba(0,0,0,0.1);
+    // font-family: 'Cormorant', serif;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    overflow-x:hidden;
+    // -webkit-transform: translate3d(0,0,0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+.hideBg{
+    background: none;
+}
+// .visible{
+//     visibility: visible;
+// }
+// .hidden{
+//     visibility: hidden;
+// }

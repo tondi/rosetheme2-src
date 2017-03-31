@@ -1,0 +1,85 @@
+.widget-area{
+    position: relative;
+    z-index: 2;
+    // background-color: rgba(0,0,0,0.6);
+    background-image: url('assets/rose-main.jpg');
+    // background-size: 100vw * 1.8;
+    background-size: cover;
+    background-position: 25%;
+    // background-repeat: repeat; 
+
+    &::before{
+            content: '\A';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            // background-image: url('assets/rose2.jpg');
+            background-color: rgba(0,0,0,0.3);
+            will-change: transform;
+        }
+    color: white;
+    text-align: center;
+    background-color: $rose; // ladowanie
+    background-repeat: no-repeat;
+
+
+
+    // height: 100px;
+    // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+    // background-attachment: fixed;
+    // background-position: 10% top;
+    
+    // background-size: 100vh * 2;
+    // @include respond-to (plus-small){
+    //     background-size: calc(100vw * 1);
+    // }
+    // height: 300px;
+    // width: auto;
+    // min-width: 100vw;
+
+    img, .fb_iframe_widget > *{
+        // max-width: 100vw;
+        // margin: 0 auto;
+        max-width: 100%;
+        box-shadow: 0 0 10px #000000;
+    }
+    
+    
+    
+}
+.widget-title{
+    padding: 8%;
+    font-size: 2em;
+    margin: 0;
+}
+.textwidget{
+    text-align: center;
+    margin: 0 5% 0 5%;
+    padding-bottom: 5%;
+    a{
+        text-align: center;
+    }
+    span{
+        text-align: left;
+    } 
+    > span {
+        display: block;
+    }
+    .fb_iframe_widget span{
+        // width: 100vw !important;
+        // text-align: center;
+        // // text-align: center !important;
+        // width: 100% !important;
+        // height: auto;
+        > * {
+            // text-align:center;
+            // margin: 0 auto;
+        }
+    }
+}
+.entry-footer{
+    padding: 5%;
+}
