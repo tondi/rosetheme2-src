@@ -1,4 +1,7 @@
 .main-navigation {
+    // new paint layer
+    backface-visibility: hidden;
+
     top: 0;
     margin: 0;
     width: 100vw;
@@ -31,26 +34,9 @@
         display: none;
         visibility: hidden;
     }
-    
-    
-    // transition: opacity 0.2s, visibility 0.2s, height 0.2s;
   }
 
-
-// ???????????
-@include respond-to(small){
-    .main-navigation { // ul?
-        visibility: visible;
-        display: flex;
-        
-        // display: block;
-    }
-}
 .nav-menu{
-    // *, *::before, *::after{
-
-    // transform: translate(0,0);
-    // }
     @for $i from 1 through 9 {
         :nth-child(#{$i})>* { animation-delay: ($i - 0.3 * $i) * 0.10s; }
     }        
@@ -106,7 +92,10 @@
             // transform: translateX(-50%);
             // transition: .5s ease-in-out;
             animation: fadeInRight 0.7s ease forwards;
-            
+            // -webkit-transform: translate3d(0, 0, 0);
+    //         	-webkit-backface-visibility: hidden;
+	// -webkit-perspective: 1000;
+    //     backface-visibility: hidden;
             // animation-delay: 0.55s;
             
             
@@ -165,4 +154,85 @@
 #site-navigation.toggled{
     background-color: rgba(darken($rose, 8), 0.8);
     
+}
+
+
+//// RWD - desktop 
+
+@include respond-to(medium){
+    .main-navigation {
+        .menu-menu-container{
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+        }
+    
+        #primary-menu { // ul?
+            height: 100%;
+            width: 100vw;
+            position: absolute;
+            margin: 0 20px 0 5%;
+            top: 0;
+            right: 0;
+            
+
+            visibility: visible;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+            font-size: 0.7em;
+            // font-weight: 400;
+            // text-transform: uppercase;
+
+            
+            
+            li{
+                flex-grow: none;
+                // position: relative;
+                margin: 0 10px 0 10px;
+                > a {
+                    flex-grow: none;
+                }
+            } 
+            // usuwa kontakt z menu
+            .menu-additional{
+                display: none;
+            }
+            * > * {
+                position: initial;
+                left: initial;
+                right: initial;
+                margin-left: initial;
+                margin-right: initial;
+                animation: none;
+            }
+            
+        }
+    }
+}
+
+@include respond-to(medium){
+    // == min (medium) and max (1199px)
+    @media (max-width: 1199px){
+        .site-description{
+            display: none;
+        }
+        #primary-menu{
+            justify-content: center !important;
+            // width: 100vw !important;
+        }
+    }
+    
+    
+}
+@include respond-to(large){
+    .site-description{
+        display: initial;
+    }
+    #primary-menu{
+        justify-content: flex-end;
+        // width: 100vw !important;
+    }
 }

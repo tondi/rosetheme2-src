@@ -17,7 +17,7 @@
   top: 11px; //5
   right: 9px;
   overflow: hidden;
-  @include respond-to(small){
+  @include respond-to(medium){
         visibility: hidden;
   }
   &.collapsed {

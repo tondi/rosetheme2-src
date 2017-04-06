@@ -2,10 +2,8 @@
     position: relative;
     z-index: 2;
     // background-color: rgba(0,0,0,0.6);
-    background-image: url('assets/rose-main.jpg');
     // background-size: 100vw * 1.8;
-    background-size: cover;
-    background-position: 25%;
+    
     // background-repeat: repeat; 
 
     &::before{
@@ -15,9 +13,11 @@
             height: 100%;
             bottom: 0;
             left: 0;
-            z-index: -1;
-            // background-image: url('assets/rose2.jpg');
-            background-color: rgba(0,0,0,0.3);
+            z-index: -10;
+            background-size: cover;
+            background-position: 25%;
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/rose-main.jpg');
+            // background-attachment: fixed;
             will-change: transform;
         }
     color: white;
