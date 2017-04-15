@@ -1,85 +1,158 @@
-.widget-area{
-    position: relative;
+.widget-area {
+    position: static;
     z-index: 2;
     // background-color: rgba(0,0,0,0.6);
     // background-size: 100vw * 1.8;
-    
     // background-repeat: repeat; 
-
-    &::before{
-            content: '\A';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            bottom: 0;
-            left: 0;
-            z-index: -10;
-            background-size: cover;
-            background-position: 25%;
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('assets/rose-main.jpg');
-            // background-attachment: fixed;
-            will-change: transform;
-        }
+    &::before {
+        content: '';
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        bottom: 0;
+        left: 0;
+        z-index: -3;
+        background-size: cover;
+        background-position: 25%;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('assets/rose-main.jpg');
+        // background-attachment: fixed;
+        backface-visibility: hidden;
+        background-color: $rose; // ladowanie
+        // will-change: transform;
+    }
     color: white;
     text-align: center;
-    background-color: $rose; // ladowanie
     background-repeat: no-repeat;
-
-
-
-    // height: 100px;
-    // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
-    // background-attachment: fixed;
-    // background-position: 10% top;
-    
-    // background-size: 100vh * 2;
-    // @include respond-to (plus-small){
-    //     background-size: calc(100vw * 1);
-    // }
-    // height: 300px;
-    // width: auto;
-    // min-width: 100vw;
-
-    img, .fb_iframe_widget > *{
+    img {
+        max-width: 94vw;
+        margin: 5% 0;
+        box-shadow: 0 0 10px #000000;
+    }
+    .fb_iframe_widget>* {
         // max-width: 100vw;
         // margin: 0 auto;
         max-width: 100%;
         box-shadow: 0 0 10px #000000;
     }
-    
-    
-    
 }
-.widget-title{
+
+.widget-title {
     padding: 8%;
     font-size: 2em;
     margin: 0;
+    // z-index: 3;
 }
-.textwidget{
+
+.text-inside {
     text-align: center;
     margin: 0 5% 0 5%;
     padding-bottom: 5%;
-    a{
+    a {
         text-align: center;
     }
-    span{
+    span {
         text-align: left;
-    } 
-    > span {
+    }
+    >span {
         display: block;
     }
-    .fb_iframe_widget span{
-        // width: 100vw !important;
-        // text-align: center;
-        // // text-align: center !important;
-        // width: 100% !important;
-        // height: auto;
-        > * {
-            // text-align:center;
+    // tu byl fb iframe widget
+}
+
+.entry-footer {
+    padding: 5%;
+}
+
+.google-map {
+    display: none;
+}
+
+@include respond-to(medium) {
+    .widget-area {
+        max-height: 470px;
+        background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)) {
+            size: cover;
+            position: 25%;
+        }
+        position: static;
+        .map-href {
+            display: none;
+        }
+        &::before {
+            position: fixed;
+            background: url("assets/rose-frontpage.png") no-repeat;
+            // transform: scaleX(-1);
+            backface-visibility: hidden;
+            z-index: -3;
+            height: 580px;
+            background-size: cover;
+            background-position: 45%;
+        }
+        img,
+        .fb_iframe_widget>* {
+            // max-width: 100vw;
             // margin: 0 auto;
+            max-width: initial;
+            box-shadow: 0 0 10px #000000;
+        }
+        .google-map {
+            display: initial;
+            position: relative;
+            box-shadow: 0 0 10px #000000;
+            // padding: 0 0 25% 0;
+            // height: 0;
+            overflow: hidden;
+            flex: 4;
+            // vw instead of % because of firefox support
+            // http://stackoverflow.com/questions/23717953/padding-bottom-top-in-flexbox-layout
+            margin: 3vw 0;
+            iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100% !important;
+                height: 100% !important;
+            }
+        }
+        // .social{
+        //     display: flex;
+        //     flex-direction: column;
+        // }
+        img {
+            width: 340px;
+            margin-top: 5%;
         }
     }
-}
-.entry-footer{
-    padding: 5%;
+    .widget-title {
+        display: none;
+    }
+    .textwidget {
+        display: flex;
+        > div {
+            padding: 3vw;
+            flex: 3;
+        }
+    }
+    .text-inside {
+        // text-align: center;
+        margin: 0;
+        // padding-bottom: 5%;
+        // display: inline;
+        // width: 30%;
+        .greeting {
+            display: none;
+        }
+        a {
+            // text-align: left; 
+        }
+        span {
+            text-align: left;
+        }
+        div {
+            text-align: left;
+        }
+        // > span {
+        //     display: inline-block;
+        // }
+    }
 }

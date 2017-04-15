@@ -1,6 +1,15 @@
-.site-footer{
-    margin: 0 5% 5% 5%;
-    .site-info{
+.site-footer {
+    padding: 2% 5% 2% 5%;
+    background: white;
+    .site-info {
         text-align: center;
+    }
+}
+
+@include respond-to(medium) {
+    .site-footer {
+        background: white;
+        margin: 0;
+        padding: 1% 1%;
     }
 }

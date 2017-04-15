@@ -1,22 +1,34 @@
-.front-header{
+.front-header {
+    .header-cite {
+        display: none;
+    }
+}
 
-        .header-cite{
+@include respond-to(medium) {
+    .front-header {
+        height: 615px !important;
+        &::before {
+            height: 615px !important;
+        }
+        .header-cite {
             color: #ffffff;
             font-size: 2.4em;
             position: relative;
             right: 20%;
             text-align: left;
             font-style: italic;
-
+            display: initial;
             .second-line {
                 position: relative;
                 bottom: 12px;
                 margin-left: 28px;
                 // margin-bottom: 20px;
             }
-
         }
-        .header-author{
+        .entry-title {
+            display: none;
+        }
+        .header-author {
             font-size: 0.7em;
             font-style: initial;
             margin: -8px 0 0 0;
@@ -24,3 +36,4 @@
             margin-right: 70px;
         }
     }
+}

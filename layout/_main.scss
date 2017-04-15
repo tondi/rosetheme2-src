@@ -1,93 +1,126 @@
-.content-area{
+/* Everything inside #content */
+
+.content-area {
     text-align: center;
 }
-#main{
-    // z-index: 1;
-    .content-colored{
-        color: $rose;
-    }
-    
-    .entry-header{
-        // position: relative;
-        z-index: 1;
-        &::before{
-            position: fixed;
-            background-image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(http://localhost/centrumroza/wp-content/uploads/2017/03/cropped-rose-main.jpg);
-            content: '\A';
-            // background: rgba(0,0,0,0.6);
-            width: 100%;
-            height: 300px;
-            top: 0;
-            left: 0;
-            z-index: -2;
-            // creates true new paint layer 
-            backface-visibility: hidden;
-            background-position: 10% top;
-            // background-image:
-            // background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
-            background-repeat: no-repeat;
-            // background-attachment: fixed;
-            // background-size: cover;
 
-            // Jak wydajnosc nie styknie zmienic na cover(?)
-            background-size: calc(100vw * 1.78);
-            @include respond-to (plus-small){
-                background-size: calc(100vw * 1);
-            }
-            // background-color: $rose; // ladowanie
-            @include respond-to (medium){
-                background-image: url(assets/rose-frontpage.png);
-                background-size: cover;
-                height: 604px;
-                background-position: 60%;
-                // position: absolute;
-            }
-        }
-        @include respond-to (medium){
+// z-index: 1;
+.content-colored {
+    color: darken($rose, 8);
+}
+.entry-header {
+    // position: relative;
+    z-index: 1;
+    &::before {
+        position: fixed;
+        content: '\A';
+        width: 100%;
+        height: 300px;
+        top: 0;
+        left: 0;
+        z-index: -2;
+        // creates true new paint layer 
+        backface-visibility: hidden;
+        // Jak wydajnosc nie styknie zmienic na cover(?)
+        background: {
+            position: 10% top;
+            repeat: no-repeat;
+            size: calc(100vw * 1.78);
             
-            height: 604px;
+            image: linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .3)), url(../../../wp-content/uploads/2017/03/cropped-rose-main.jpg);
+        }
+        @include respond-to (plus-small) {
+            background: {
+                size: cover;
+                background-image: url(assets/rose-frontpage.png);
+                position-y: 20%;
+            }
+            
+        }
+        // background-colorfse; // ladowanie
+        @include respond-to (medium) {
+            background: {
+                image: url(assets/rose-frontpage.png);
+                size: cover;
+                position: 45%;
+            }
+            // height: 602px;
+            // position: absolute;
         }
         
-        height: 300px ;
-        // width: auto;
-        min-width: 100vw;
-        // min-height: 300px;
-        // max-height: 100vh;
-        // margin: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        @include respond-to(large){
+            background-position: 25% 22%;
+        }
     }
-    .entry-title{
-        // height: 100%;
-        font-weight: 400;
-        z-index: 1;
-        
-        color: white;
-        margin: 10%;
-        // position: absolute;
-        // top: 50px;
-        // left: 20%;
-        // right: 20%;
-        text-align: center;
-    }
-    .entry-content{
-        z-index: 1;
-        padding: 5%;
-        background: #ffffff;
-        font-size: 1.1em;
-    }
+    height: 300px;
+    // width: auto;
+    min-width: 100vw;
+    // min-height: 300px;
+    // max-height: 100vh;
+    // margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.entry-title {
+    // height: 100%;
+    font-weight: 400;
+    z-index: 1;
+    color: white;
+    margin: 10%;
+    // position: absolute;
+    // top: 50px;
+    // left: 20%;
+    // right: 20%;
+    text-align: center;
+}
+.entry-content {
+    $padding: 5%;
+    z-index: 1;
+    padding: $padding;
+    background: $white;// darken(mix($rose, $gray, 80%),10%);
+    font-size: 1.1em;
+         ul{
+            padding-left: $padding;
+            // text-align: left;
+            display: inline-block;
+            li {
+                margin-bottom: 0.2em;
+            }
+         } 
+    
 }
 
-#picture{
-    img{
+#picture {
+    img {
         // width: 100vw;
         width: 50%;
         height: auto;
         float: right;
-        margin: 3%;
+        margin: 0 3%;
     }
 }
-.entry-footer{
+
+.entry-footer {
     background: $bgcolor;
+}
+
+@include respond-to(medium){
+    .entry-content{
+         padding: 5% 15%;
+
+         ul{
+            text-align: left;
+            display: inline-block;
+            > li {
+                 margin-bottom: initial;
+            }
+         } 
+         
+    }
+}
+
+// additional styling
+.font-weight-regular{
+    font-weight: 400;
 }

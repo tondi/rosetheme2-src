@@ -9,7 +9,6 @@
 
 @import
   'base/base',
-  'base/fonts',
   'base/typography';
 
 @import
@@ -23,11 +22,5 @@
   'components/hamburger';
 
 @import
-  'pages/frontpage';
-
-body{
-    // margin: 0;
-    // padding: 0;
-    // background: red;
-    
-}
+  'pages/frontpage',
+  'pages/404';   
