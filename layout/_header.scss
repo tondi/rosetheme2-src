@@ -46,10 +46,7 @@
             position: initial;
         }
     }
-    // hrefs to contact page
-    .menu-contact {
-        display: initial;
-    }
+    
     list-style-type: none;
     display: flex;
     // list-style: none;
@@ -152,10 +149,6 @@
 //// RWD - desktop 
 @include respond-to(medium) {
     .main-navigation {
-        .menu-contact {
-            display: initial;
-            color: $white;
-        }
         .menu-menu-container {
             position: absolute;
             height: 100%;
